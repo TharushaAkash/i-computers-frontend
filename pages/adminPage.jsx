@@ -6,7 +6,7 @@ export default function AdminPage(){
     return(
          <div className= 'w-full h-screen flex items-center bg-accent'>
             {/* Side bar for admin dashboard */}
-            <div className="w-[300px] h-full text-white">
+            <div className="w-[200px] h-full text-white">
                 {/* ctr + /  = comment */}
                 <h1 className="text-2xl font-bold mb-4">Using Link tag 👌</h1>
                 <Link to="/" className="block py-2 hover:bg-gray-700">Home</Link>
@@ -18,7 +18,7 @@ export default function AdminPage(){
             </div>
 
             {/*Dynamic Content area*/}
-            <div className="w-[calc(100%-300px)] h-full bg-primary border-[10px] border-accent rounded-2xl">
+            <div className="w-[calc(100%-200px)] h-full bg-primary border-[10px] border-accent rounded-2xl">
                 <Routes>
                     <Route path="/" element={<h1>Orders Dashboard</h1>}/>
                     <Route path="/products" element={<ProductPage />}/>
