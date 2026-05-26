@@ -63,7 +63,7 @@ export default function AddProduct(){
             navigate("/admin/products");
 
         }catch(error){
-            toast.success(error?.response?.data?.message || "Failed to add product. Plz try again")
+            toast.error(error?.response?.data?.message || "Failed to add product. Plz try again")
             console.log(error.message);
         }
 
