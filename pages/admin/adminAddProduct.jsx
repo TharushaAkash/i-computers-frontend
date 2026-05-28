@@ -3,6 +3,7 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import uploadMedia from "../../src/utils/mediaUpload";
 import axios from "axios";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 export default function AddProduct(){
     const [productId, setProductId] = useState('');
@@ -19,9 +20,11 @@ export default function AddProduct(){
     const [stock, setStock] = useState('');
 
     const navigate = useNavigate();
+    const [isSaving, setIsSaving] = useState(false);
 
     async function handleSave(){
         try{
+            setIsSaving(true);
             //token is saved when login
             const token = localStorage.getItem("token");
             if(token == null){
@@ -64,6 +67,7 @@ export default function AddProduct(){
             navigate("/admin/products");
 
         }catch(error){
+            setIsSaving(false)
             toast.error(error?.response?.data?.message || "Failed to add product. Plz try again")
             console.log(error.message);
         }
@@ -79,7 +83,7 @@ export default function AddProduct(){
 
                 {/* Header button div */}
                 <div className="h-full flex justify-center items-center">
-                    <button onClick={handleSave} className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-400">Save</button>
+                    <button onClick={handleSave} className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-400" disabled={isSaving}>{isSaving? <AiOutlineLoading3Quarters className="animate-spin"/> : "Save"}</button>
                     <button className="ml-4 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700">Cancel</button>
                 </div>
             </div>

@@ -3,6 +3,7 @@ import toast from "react-hot-toast";
 import { useLocation, useNavigate } from "react-router-dom";
 import uploadMedia from "../../src/utils/mediaUpload";
 import axios from "axios";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 export default function AdminEditProduct(){
 
@@ -22,6 +23,8 @@ export default function AdminEditProduct(){
     const [isAvailable, setIsAvailable] = useState(location.state?.isAvailable);
     const [stock, setStock] = useState(location.state?.stock);
 
+    const [isUpdating, setIsUpdating] = useState(false);
+
     useEffect(
         () => {
             if(location.state == null){
@@ -32,10 +35,11 @@ export default function AdminEditProduct(){
     )
     
 
-    const product = location.state?.product;
+    const product = location.state;
    
-    async function handleSave(){
+    async function handleUpdate(){
         try{
+            setIsUpdating(true);
             //token is saved when login
             const token = localStorage.getItem("token");
             if(token == null){
@@ -66,8 +70,12 @@ export default function AdminEditProduct(){
                 stock: Number(stock)
             }
 
+            if(mediaUrls.length == 0){
+                productData.images = product.images
+            }
 
-            const response = await axios.post(import.meta.env.VITE_API_URL+"/products", productData,{
+
+            const response = await axios.put(import.meta.env.VITE_API_URL+"/products/"+productId, productData,{
                 headers : {
                     "Authorization": "Bearer " + token
                 }
@@ -78,7 +86,8 @@ export default function AdminEditProduct(){
             navigate("/admin/products");
 
         }catch(error){
-            toast.error(error?.response?.data?.message || "Failed to add product. Plz try again")
+            setIsUpdating(false)
+            toast.error(error?.response?.data?.message || "Failed to update product. Plz try again")
             console.log(error.message);
         }
 
@@ -93,8 +102,12 @@ export default function AdminEditProduct(){
 
                 {/* Header button div */}
                 <div className="h-full flex justify-center items-center">
-                    <button onClick={handleSave} className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-400">Update</button>
-                    <button className="ml-4 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700">Cancel</button>
+                    <button onClick={handleUpdate} className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-400 cursor-pointer" disabled={isUpdating}>{isUpdating? <AiOutlineLoading3Quarters className="animate-spin"/> : "Update"}</button>
+                    <button
+                        onClick={() => {
+                            navigate("/admin/products");
+                        }}
+                     className="ml-4 px-4 py-2 bg-red-600 text-white rounded-lg cursor-pointer hover:bg-red-700">Cancel</button>
                 </div>
             </div>
 
@@ -104,8 +117,9 @@ export default function AdminEditProduct(){
 
                 <div className="w-1/4 p-2">
                     <label className="block mb-2 font-semibold">Product Id</label>
-                    <input className="border border-gray-300 rounded-md p-2 w-full"
+                    <input className="border border-gray-300 rounded-md p-2 w-full cursor-not-allowed bg-gray-100"
                     value={productId}
+                    disabled={true}
                     onChange={(e) => {
                         setProductId(e.target.value);
                     }}

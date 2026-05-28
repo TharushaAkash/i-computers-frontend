@@ -16,8 +16,8 @@ export default function App() {
         <div className= 'w-full h-screen  relative bg-primary'>
           <Toaster position='top-center' />
           <Routes>
-            <Route path='/' element={<HomePage />} />
-            <Route path='/products' element={<ProductCard />} />
+            <Route path='/*' element={<HomePage />} />
+            {/* <Route path='/products' element={<ProductCard />} /> */}
             <Route path='/admin/*' element={<AdminPage />} />
             <Route path='/test' element={<TestPage />} />
             <Route path='/login' element={<LoginPage/>}/>
