@@ -48,3 +48,12 @@ export function addToCart(product, quantity){
     const cartString = JSON.stringify(cart);
     localStorage.setItem("cart", cartString);
 }
+
+export function getTotal(cart){
+    let total = 0;
+
+    for(let i = 0; i < cart.length; i++){
+        total += cart[i].product.price * cart[i].quantity;
+    }
+    return total;
+}

@@ -181,11 +181,25 @@ export default function OverviewPage(){
                                 className="flex justify-center items-center gap-5 w-62.5 h-13 bg-green-500 text-lg text-white font-semibold rounded-lg cursor-pointer hover:bg-green-700 transition-colors duration-300">
                                 <FaCartShopping className="text-2xl" />
                                 Add to Cart</button>
-                            <button
-                                onClick={() => {console.log(getCart())}} 
+                            <Link
+                                to="/checkout"
+                                state={
+                                    [
+                                        {
+                                            product: {
+                                                productId: product.productId,
+                                                name: product.name,
+                                                image: product.images[0],
+                                                labeledPrice: product.labeledPrice,
+                                                price: product.price,
+                                            },
+                                            quantity: 1
+                                        }
+                                    ]
+                                }
                                 className=" flex justify-center items-center gap-4 w-62.5 h-13 bg-blue-500 text-lg text-white font-semibold rounded-lg cursor-pointer hover:bg-blue-700 transition-colors duration-300">
                                 <BsLightningCharge className="text-2xl" />
-                                Buy Now</button>
+                                Buy Now</Link>
                         </div>
                     </div>
 
