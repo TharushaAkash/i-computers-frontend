@@ -1,6 +1,5 @@
 import { MdDelete } from "react-icons/md";
 import { useState } from "react";
-import axios from "axios";
 import { toast } from "react-hot-toast";
 import { FaEye } from "react-icons/fa";
 import { IoCloseCircle } from "react-icons/io5";
@@ -10,41 +9,13 @@ import { MdAlternateEmail } from "react-icons/md";
 import { FaHome } from "react-icons/fa";
 import api from "../utils/api";
 
-export default function OrderDataModel(props) {
+export default function CustomerOrderDetailsModel(props) {
 
     const [showModel, setShowModel] = useState(false);
 
     const order = props.order;
-    const refresh = props.refresh;
     const [notes, setNotes] = useState(props.order.notes)
-    const [status, setStatus] = useState(props.order.status)
-    const [isUpdating, setIsUpdating] = useState(false)
-
-    async function updateOrder() {
-        setIsUpdating(true)
-        const token = localStorage.getItem("token");
-        try {
-            await api.put("/orders/" + order.orderId, {
-                notes: notes,
-                status: status
-            }, {
-                headers: {
-                    "Authorization": "Bearer " + token
-                }
-            }
-            )
-            setIsUpdating(false)
-            toast.success("Order updated successfully")
-            refresh();
-
-        } catch (err) {
-            setIsUpdating(false)
-            console.log(err.message)
-            toast.error("Failed to update order")
-
-        }
-    }
-
+    
 
     return (
         <>
@@ -131,34 +102,7 @@ export default function OrderDataModel(props) {
                         <div className="w-full bg-transparent sticky flex justify-end text-2xl font-bold text-green-600/70 p-1 rounded-lg">
                             <span className="bg-green-200 p-2 rounded-lg border-2 border-green-300">Total: {priceFormat(order.total)}</span>
                         </div>
-
-                        <div className="w-full flex gap-5 items-center mt-2 pb-2 justify-between">
-                            <div className="w-1/2 flex flex-col justify-start">
-                                <label className="text-gray-800 font-semibold mb-1 text-left">Edit Notes:</label>
-                                <textarea type="text" placeholder="Enter notes here..." value={notes} className="px-3 py-1 w-full bg-gray-200 text-gray-700 rounded-lg" onChange={(e) => setNotes(e.target.value)}></textarea>
-                            </div>
-
-                            <div className="flex flex-col">
-                                <label className="text-gray-800 font-semibold mb-1">Uptate Status:</label>
-                                <select value={status} className="px-3 py-1 bg-gray-200 text-gray-700 rounded" onChange={(e) => setStatus(e.target.value)}>
-                                    <option value="Pending">Pending</option>
-                                    <option value="Processing">Processing</option>
-                                    <option value="Shipped">Shipped</option>
-                                    <option value="Delivered">Delivered</option>
-                                    <option value="Cancelled">Cancelled</option>
-                                </select>
-                            </div>
-                            <button
-                                onClick={updateOrder}
-                                disabled={isUpdating}
-                                className=" mt-4 text-lg bg-blue-600 rounded-lg px-8 py-2 font-semibold text-white hover:bg-blue-700 transition-colors duration-200 cursor-pointer">{isUpdating ? "Wait" : "Update"}</button>
-
-                        </div>
-
-
                     </div>
-
-
                 </div>
             }
         </>

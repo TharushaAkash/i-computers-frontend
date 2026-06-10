@@ -6,13 +6,14 @@ import { useEffect } from "react";
 import { MdDelete } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
 import { toast } from "react-hot-toast";
-import LoadingAnimation from "../../src/components/loadingAnimation";
-import ProductDeleteModel from "../../src/components/productDeleteModel";
+import LoadingAnimation from "../src/components/loadingAnimation";
+import ProductDeleteModel from "../src/components/productDeleteModel";
 import { useNavigate } from "react-router-dom";
-import priceFormat from "../../src/utils/priceFormat";
-import OrderDataModel from "../../src/components/orderDataModel";
+import priceFormat from "../src/utils/priceFormat";
+import OrderDataModel from "../src/components/orderDataModel";
+import CustomerOrderDetailsModel from "../src/components/customerOrderDetailsModal";
 
-export default function AdminOrdersPage(){
+export default function CustomerOrdersPage(){
 
     const [orders, setOrders] = useState([]);
     const [ordersLoading, setOrdersLoading] = useState(false);
@@ -61,7 +62,7 @@ export default function AdminOrdersPage(){
                 </h1>
 
                 <p className="text-gray-500 mt-1">
-                    Manage all your Orders easily
+                    All orders
                 </p>
             </div>
 
@@ -166,7 +167,7 @@ export default function AdminOrdersPage(){
                                         </td>
 
                                         <td className="text-center px-5 py-2">
-                                            <OrderDataModel order={order} refresh={()=>setOrdersLoading(false)}/>
+                                            <CustomerOrderDetailsModel order={order}/>
                                         </td>
 
                                     </tr>
