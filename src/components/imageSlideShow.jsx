@@ -7,7 +7,7 @@ export default function ImageSlideShow(props){
     const [activeImage, setActiveImage] = useState(0);
 
     return(
-        <div className="w-[500px] h-[600px] flex flex-col">
+        <div className="w-[500px] lg:h-[600px] flex flex-col">
             <img className="w-full aspect-square object-cover" src={images[activeImage]} alt="Product Image" />
 
             <div className="h-[100px] w-full flex items-center justify-center gap-2">

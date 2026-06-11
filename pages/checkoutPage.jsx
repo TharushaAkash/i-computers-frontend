@@ -11,7 +11,7 @@ export default function CheckoutPage(){
     const [cart, setCart] = useState(location.state);
     return(
         <div className="w-full h-full p-5">
-            <h1 className="text-left mb-3">Home /
+            <h1 className="text-left mb-3"><Link to="/">Home /</Link>
                 <span className="font-bold"> Checkout</span>
             </h1>
             <div className="text-4xl font-bold mb-5">
@@ -23,7 +23,7 @@ export default function CheckoutPage(){
                     cart.map(
                         (item) => {
                             return(
-                                <div key={item.product.productId}className="bg-white w-[500px] h-[150px] rounded-lg shadow-2xl mb-3 p-2 flex items-center relative">
+                                <div key={item.product.productId}className="bg-white w-full lg:w-[500px] h-[150px] rounded-lg shadow-2xl mb-3 p-2 flex items-center relative">
                                     <img src={item.product.image} alt={item.product.name} className="w-[100px] h-[100px] object-cover rounded-lg" />
                                     <div className="h-full w-[400px]">
                                         <h1 className="text-lg font-semibold">{item.product.name}</h1>
@@ -63,7 +63,7 @@ export default function CheckoutPage(){
                     )
                 }
 
-                <div className="bg-white fixed bottom-0  w-[500px] h-[100px] rounded-t-lg border shadow-2xl mb-3 p-2 flex items-center justify-between"> 
+                <div className="bg-white fixed bottom-[82px] lg:bottom-0 rounded-2xl lg:w-[500px] h-[100px] rounded-t-lg shadow-2xl mb-3 p-5 lg:p-2 flex items-center justify-between"> 
                     <CreateOrderModel  cart={cart}/>
                     <p className="text-xl font-bold ml-4">Total: {priceFormat(getTotal(cart))}</p>
                 </div>

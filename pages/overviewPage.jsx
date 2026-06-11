@@ -45,7 +45,7 @@ export default function OverviewPage(){
     )
 
     return(
-        <div className="w-full min-h-screen flex justify-center items-center bg-gray-100 p-5">
+        <div className="w-full lg:min-h-screen flex flex-col lg:flex-row justify-center items-center bg-gray-100  p-3 lg:p-5">
             {
                 status === "loading" &&
                 <LoadingAnimation />
@@ -67,7 +67,7 @@ export default function OverviewPage(){
             {
                 status == "success" && <div className="w-full">
                     {/* breadCumb */}
-                    <div className="flex items-center gap-2 mb-5">
+                    <div className="flex items-center gap-2 mb-5 ">
                         <Link to="/" className="hover:text-accent transition-colors duration-100">Home</Link>
                         <span>/</span>
 
@@ -81,15 +81,15 @@ export default function OverviewPage(){
                 
                 
                 {/* // Main Container */}
-                <div className="w-full h-full flex bg-white rounded-3xl shadow-lg p-6 gap-10">
+                <div className="w-full mb-20 h-full flex flex-col lg:flex-row bg-white rounded-3xl shadow-lg p-6 gap-10">
                     {/* Left Side */}
-                    <div className="w-1/2 h-full flex justify-center items-center bg-gray-50 rounded-2xl p-5 border">
+                    <div className=" w-full lg:w-1/2 lg:h-full flex justify-center items-center bg-gray-50 rounded-2xl p-5 border">
                         <ImageSlideShow  images={product.images}/>
                     </div>
 
 
                     {/* Right Side */}
-                    <div className="w-1/2 h-full flex flex-col p-5">
+                    <div className="w-full lg:w-1/2 h-full flex flex-col lg:p-5">
                         <h1 className="text-3xl font-bold">{product.name}</h1>
                         <span className="mb-4">
                             {product.altNames.map(
@@ -121,13 +121,13 @@ export default function OverviewPage(){
                         </div>
 
                         {/* Brand and Model */}
-                        <div className="flex flex-wrap mt-8">
-                            <div className="bg-gray-100 px-2 py-2 rounded-lg">
+                        <div className="flex flex-col lg:flex-row mt-8">
+                            <div className="bg-gray-100 px-2 py-2 rounded-lg mb-3 lg:mb-0 lg:w-auto">
                                 <span className="text-lg font-bold">Model:</span>
                                 <span className="text-lg ml-2 text-gray-500 font-semibold">{product.model}</span>
                             </div>
-                            <div className="bg-gray-100 px-2 py-2 rounded-lg ml-5">
-                            <span className="text-lg font-bold ml-5">Category: </span>
+                            <div className="bg-gray-100 px-2 py-2 rounded-lg lg:ml-3">
+                            <span className="text-lg font-bold ">Category: </span>
                             <span className="text-lg text-gray-500 font-semibold">{product.category}</span>
                             </div>
                         </div>
@@ -175,7 +175,7 @@ export default function OverviewPage(){
                         </div>
 
                         {/* buttons */}
-                        <div className="flex mt-9 gap-5">
+                        <div className="flex mt-5 lg:mb-0 lg:mt-9 gap-5 sticky bottom-[80px] w-full lg:static lg:p-3">
                             <button
                                 onClick={() => {addToCart(product, 1); toast.success("Added to cart")}} 
                                 className="flex justify-center items-center gap-5 w-62.5 h-13 bg-green-500 text-lg text-white font-semibold rounded-lg cursor-pointer hover:bg-green-700 transition-colors duration-300">

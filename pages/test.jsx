@@ -23,11 +23,8 @@ export default function TestPage(){
 
     }
     return(
-        <div className="w-full h-screen flex flex-col justify-center items-center text-accent">
-            <input onChange={(e) => {
-                setFile(e.target.files[0]);
-            }} type="file"></input>
-            <button onClick={handleUpload} className="bg-accent text-white px-4 py-2 rounded mt-4 hover:bg-second cursor-pointer">Upload</button>
+        <div className="w-full h-full bg-red-900 flex justify-center items-center p-5">
+            <div className="bg-green-500 md:bg-amber-400  lg:bg-blue-700 w-[500px] h-[500px]"></div>
             
         </div>
     )

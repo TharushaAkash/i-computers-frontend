@@ -7,7 +7,7 @@ export default function CartPage(){
     const [cart, setCart] = useState(getCart());
     return(
         <div className="w-full h-full p-5">
-            <h1 className="text-left mb-3">Home /
+            <h1 className="text-left mb-3"><Link to="/">Home /</Link>
                 <span className="font-bold"> Cart</span>
             </h1>
             <div className="text-4xl font-bold mb-5">
@@ -19,7 +19,7 @@ export default function CartPage(){
                     cart.map(
                         (item) => {
                             return(
-                                <div key={item.product.productId}className="bg-white w-[500px] h-[150px] rounded-lg shadow-2xl mb-3 p-2 flex items-center relative">
+                                <div key={item.product.productId}className="bg-white w-auto w-full lg:w-[500px] h-[150px] rounded-lg shadow-2xl mb-3 p-2 flex items-center relative">
                                     <img src={item.product.image} alt={item.product.name} className="w-[100px] h-[100px] object-cover rounded-lg" />
                                     <div className="h-full w-[400px]">
                                         <h1 className="text-lg font-semibold">{item.product.name}</h1>
@@ -59,7 +59,7 @@ export default function CartPage(){
                     )
                 }
 
-                <div className="bg-white fixed bottom-0  w-[500px] h-[100px] rounded-t-lg border shadow-2xl mb-3 p-2 flex items-center justify-between"> 
+                <div className="bg-white fixed bottom-[82px] lg:bottom-0 lg:w-[500px] h-[100px] rounded-2xl lg:rounded-t-lg  shadow-2xl mb-3 p-5 lg:p-2 flex items-center justify-between"> 
                     <Link to="/checkout" state={cart} className="bg-amber-500 text-white py-2 px-4 rounded-lg hover:bg-amber-600">Checkout</Link>
                     <p className="text-xl font-bold ml-4">Total: {priceFormat(getTotal(cart))}</p>
                 </div>

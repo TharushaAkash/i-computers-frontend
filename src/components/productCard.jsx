@@ -13,18 +13,15 @@ export default function ProductCard(props){
             </div>
             
             <h1 className="text-lg font-bold mt-2 px-2">{product.name}</h1>
-            <div className="w-full flex flex-col py-4">
+            <div className="w-full flex flex-col lg:py-4">
                 {
                     product.labeledPrice > product.price && 
                     <span className="text-sm text-gray-500 mt-2 px-4 line-through">Rs.{product.labeledPrice}</span>
                 }
-                <span className="text-lg font-bold mt-1 px-4">Rs. {product.price}</span>
+                <span className=" text-xl lg:text-lg font-bold mt-1 px-4 py-2 lg:py-0">Rs. {product.price}</span>
 
             </div>
         
-
-           
-           
 
         </Link>
         

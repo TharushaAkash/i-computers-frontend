@@ -32,7 +32,7 @@ export default function ProductsPage(){
         },[productsLoading]
     )
     return(
-        <div className="w-full h-full flex justify-center flex-wrap">
+        <div className="w-full h-full flex justify-center flex-wrap pb-24 overflow-y-auto">
             {
                 products.map(
                     (product, index) => {
@@ -43,9 +43,7 @@ export default function ProductsPage(){
                     }
                 )
             }
-        
-
-            
+    
         </div>
     )
 }
