@@ -24,7 +24,7 @@ export default function OrderDataModel(props) {
         setIsUpdating(true)
         const token = localStorage.getItem("token");
         try {
-            await api.put("/orders/" + order.orderId, {
+            const response = await api.put("/orders/" + order.orderId, {
                 notes: notes,
                 status: status
             }, {
@@ -40,7 +40,7 @@ export default function OrderDataModel(props) {
         } catch (err) {
             setIsUpdating(false)
             console.log(err.message)
-            toast.error("Failed to update order")
+            toast.error("response.data.message")
 
         }
     }
