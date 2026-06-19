@@ -169,8 +169,8 @@ export default function LandingPage(){
                     <div className="max-w-7xl mx-auto flex justify-between items-center mt-8">
                         <p className="text-gray-500 text-sm">© 2026 I Tech Solutions. All rights reserved.</p>
                         <div className="flex gap-4 text-sm text-gray-500">
-                            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-                            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+                            <Link to="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
+                            <Link to="/terms-and-conditions" className="hover:text-white transition-colors">Terms of Service</Link>
                         </div>
                     </div>
                 </footer>
@@ -329,8 +329,8 @@ export default function LandingPage(){
 
                     <div className="flex flex-col items-center gap-3 mt-8">
                         <div className="flex gap-6 text-xs text-gray-500">
-                            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-                            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+                            <Link to="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
+                            <Link to="/terms-and-conditions" className="hover:text-white transition-colors">Terms of Service</Link>
                         </div>
                         <p className="text-gray-500 text-xs">© 2026 I-Tech Solutions. All rights reserved.</p>
                     </div>

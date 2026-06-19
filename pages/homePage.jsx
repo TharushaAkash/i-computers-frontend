@@ -10,6 +10,8 @@ import TestPage from "./test";
 import BottomNavigationBar from "../src/components/bottomNavigationBar";
 import NotFoundPage from "./notFoundPage";
 import LandingPage from "./landingPage";
+import PrivacyPolicyPage from "./privacyPolicyPage";
+import TermsAndConditionsPage from "./termsAndConditionsPage";
 
 export default function HomePage(){
     return(
@@ -28,6 +30,8 @@ export default function HomePage(){
                     <Route path="/my-orders" element={<CustomerOrdersPage />}></Route>
                     <Route path="/settings" element={<SettingsPage />}></Route>
                     <Route path="/test" element={<TestPage/>}></Route>
+                    <Route path="/privacy-policy" element={<PrivacyPolicyPage />}></Route>
+                    <Route path="/terms-and-conditions" element={<TermsAndConditionsPage />}></Route>
                     <Route path="/*" element={<NotFoundPage />}></Route>
 
                 </Routes>
