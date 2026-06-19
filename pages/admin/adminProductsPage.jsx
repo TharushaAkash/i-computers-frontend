@@ -74,9 +74,9 @@ export default function ProductPage(){
 
 
         {/* Table Container */}
-        <div className="hidden lg:flex mt-8 bg-white rounded-3xl shadow-xl border border-gray-200 overflow-hidden">
+        <div className="hidden lg:block mt-8 bg-white rounded-3xl shadow-xl border border-gray-200 overflow-hidden w-full">
 
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto w-full">
 
 
                 {

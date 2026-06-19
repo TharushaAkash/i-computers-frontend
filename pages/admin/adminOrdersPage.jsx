@@ -78,7 +78,7 @@ export default function AdminOrdersPage(){
 
 
         {/* Table Container */}
-        <div className="hidden lg:flex  mt-8 bg-white rounded-3xl shadow-xl border-red-800 overflow-hidden">
+        <div className="hidden lg:block  mt-8 bg-white rounded-3xl shadow-xl border-red-800 overflow-hidden w-full">
 
             <div className="overflow-x-auto w-full">
 
