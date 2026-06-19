@@ -157,7 +157,7 @@ export default function LandingPage(){
                         <div className="flex flex-col gap-6">
                             <h1 className="text-white font-bold text-lg">Need Help?</h1>
                             <div className="flex flex-col gap-2">
-                                <p className="flex gap-2 items-center"><MdOutlineAttachEmail /> support@i-computers.com</p>
+                                <p className="flex gap-2 items-center"><MdOutlineAttachEmail /> support@i-techsolutions.com</p>
                                 <p className="flex gap-2 items-center"><FaPhone/> +94 78 665 8978</p>
                                 <p className="flex gap-2 items-center"><FaLocationDot />No.111/3, P.B.Wijesundara Mawatha, Colombo.</p>
                             </div>
@@ -167,7 +167,7 @@ export default function LandingPage(){
                     </div>
 
                     <div className="max-w-7xl mx-auto flex justify-between items-center mt-8">
-                        <p className="text-gray-500 text-sm">© 2026 i-Computers. All rights reserved.</p>
+                        <p className="text-gray-500 text-sm">© 2026 I Tech Solutions. All rights reserved.</p>
                         <div className="flex gap-4 text-sm text-gray-500">
                             <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
                             <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
