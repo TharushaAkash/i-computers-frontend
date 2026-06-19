@@ -119,7 +119,7 @@ export default function LandingPage(){
                         {/* Column 1: Brand */}
                         <div className="flex flex-col gap-6">
                             <Link to="/" className="text-3xl font-extrabold text-white tracking-tight">
-                                i-<span className="text-accent">Computers</span>
+                                I-Tech<span className="text-accent">Solutions</span>
                             </Link>
                             <p className="text-gray-400 leading-relaxed">
                                 Discover the latest gadgets and electronics that make life smarter, easier, and better. Your ultimate tech destination.
@@ -285,7 +285,7 @@ export default function LandingPage(){
                         {/* Brand */}
                         <div className="flex flex-col gap-4 text-center items-center">
                             <Link to="/" className="text-3xl font-extrabold text-white tracking-tight">
-                                i-<span className="text-accent">Computers</span>
+                                I-Tech<span className="text-accent">Solutions</span>
                             </Link>
                             <p className="text-gray-400 text-sm max-w-sm">
                                 Discover the latest gadgets and electronics that make life smarter, easier, and better.
