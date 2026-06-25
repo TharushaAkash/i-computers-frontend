@@ -190,6 +190,9 @@ export default function LoginPage(){
             <h3 className="text-gray-300 font-semibold text-sm mb-1">Demo Admin Credentials</h3>
             <p className="text-gray-400 text-xs font-mono">admin@gmail.com</p>
             <p className="text-gray-400 text-xs font-mono">pass: 12345</p>
+            <h3 className="text-gray-300 font-semibold text-sm mb-1">Demo User Credentials</h3>
+            <p className="text-gray-400 text-xs font-mono">user@gmail.com</p>
+            <p className="text-gray-400 text-xs font-mono">pass: 12345</p>
         </div>
 
       </div>
